@@ -73,13 +73,12 @@ public class PaymentController {
 
             boolean isValid = signature.equals(generatedSignature);
 
-            OrderDetails orderDetails = OrderDetails.builder()
-                    .orderId(orderId)
-                    .paymentId(paymentId)
-                    .signature(signature)
-                    .amount(amount)
-                    .status(isValid ? "SUCCESS" : "FAILED")
-                    .build();
+            OrderDetails orderDetails = new OrderDetails();
+            orderDetails.setOrderId(orderId);
+            orderDetails.setPaymentId(paymentId);
+            orderDetails.setSignature(signature);
+            orderDetails.setAmount(amount);
+            orderDetails.setStatus(isValid ? "SUCCESS" : "FAILED");
 
             orderRepo.save(orderDetails);
 

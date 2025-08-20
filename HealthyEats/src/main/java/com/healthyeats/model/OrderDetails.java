@@ -1,17 +1,17 @@
 package com.healthyeats.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "order_details")
 public class OrderDetails {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String orderId;   // generated
+    // --- Order Info ---
+    private String orderId;   // Razorpay / internal order reference
     private String name;
     private String phone;
     private String address;
@@ -19,7 +19,14 @@ public class OrderDetails {
     private String pincode;
     private String paymentMethod;
 
-    // Getters & Setters
+    // --- Payment Info ---
+    private String paymentId;   // Razorpay payment ID
+    private String signature;   // Payment verification signature
+    private Double amount;      // Order amount
+    private String status;      // SUCCESS / FAILED
+
+    // ----- Getters & Setters -----
+
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
@@ -43,4 +50,16 @@ public class OrderDetails {
 
     public String getPaymentMethod() { return paymentMethod; }
     public void setPaymentMethod(String paymentMethod) { this.paymentMethod = paymentMethod; }
+
+    public String getPaymentId() { return paymentId; }
+    public void setPaymentId(String paymentId) { this.paymentId = paymentId; }
+
+    public String getSignature() { return signature; }
+    public void setSignature(String signature) { this.signature = signature; }
+
+    public Double getAmount() { return amount; }
+    public void setAmount(Double amount) { this.amount = amount; }
+
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
 }
