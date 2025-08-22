@@ -102,8 +102,22 @@
         <dependency>
    			 <groupId>com.razorpay</groupId>
    			 <artifactId>razorpay-java</artifactId>
-  			  <version>1.4.4</version>
+  			 <version>1.4.4</version>
 		</dependency>
+		
+		<dependency>
+			 <groupId>org.postgresql</groupId>
+ 		     <artifactId>postgresql</artifactId>
+   			 <version>42.7.4</version> <!-- Latest stable as of 2025 -->
+		</dependency>
+		
+		<dependency>
+    		<groupId>org.postgresql</groupId>
+    		<artifactId>postgresql</artifactId>
+    		<scope>runtime</scope>
+		</dependency>
+
+
 
     </dependencies>
 
